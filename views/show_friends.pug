@@ -1,0 +1,11 @@
+extends user_layout.pug
+block content
+    ul.list-group
+        each i in frnds
+            li.list-group-item
+                a(href = i.profile style="cursor: pointer")
+                    img.rounded-circle(src = i.profile style="width :40px;height: 40px;")
+                strong(style = "margin-left: 5%;") #{i.name} &nbsp; &nbsp;
+                strong(style = "margin-left: 5%") #{i._id}
+                a(href = '/user/friends/view?user='+i._id)
+                    button.btn.btn-info.btn-sm(style = "float: right") view

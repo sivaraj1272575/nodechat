@@ -1,0 +1,30 @@
+extends user_layout.pug
+block content 
+    div(class="row")
+        div(class="column left")
+            ul.list-group
+                each i in friends
+                    li.list-group-item(style="width: 100%; margin-left: 0px; cursor:pointer" class="friend" id=i._id onclick="openfrnd('"+i._id+"')")
+                        a(href=i.profile)
+                            img.rounded-circle(src = i.profile style="width: 40px; height: 40px")
+                        strong(style="margin-left: 10px") #{i.name} &nbsp;&nbsp;
+        div(class="column right" id="chat_window")
+            div.title(id="title")
+                img.rounded-circle(src="https://www.interfacemedia.com/media/2350/img-vr-tilt-brush-website-hero-shot.jpg")
+                p 
+            div.chatbox(id="messages")
+            div(id="inp")
+                input(type="text" class="message" name="message" id="msg" placeholder="Type a Message")
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                <i class="fa fa-file" aria-hidden="true"></i>
+                <i class="fa fa-microphone" aria-hidden="true"></i>
+                button(class="btn btn-primary" id="sendbtn" onclick="sendmsg()")
+                    <i class="fa fa-paper-plane" aria-hidden="true" style="margin-left: -4%"></i>
+
+    script(src='socket.io/socket.io.js')
+    script.
+        var $user="#{user.email}";
+        console.log($user)
+    script(src="../public/home.js")
+
+

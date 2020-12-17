@@ -1,0 +1,26 @@
+doctype html
+html
+head
+    title Nodechat
+    meta(name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8")
+    link(rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+    body
+        nav.navbar.navbar-inverse
+            .container-fluid
+                .navbar-header
+                    a(class="navbar-brand" href="/") Node Chat
+                ul.nav.navbar-nav
+                    li
+                        a(href="/") Home
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href="/register") 
+                            span(class="glyphicon glyphicon-user")  Signup
+                    li
+                        a(href="/login")
+                            span(class="glyphicon glyphicon-log-in")  Login
+        .container
+            !=messages('message',locals)
+    block content

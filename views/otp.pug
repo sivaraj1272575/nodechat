@@ -1,0 +1,6 @@
+extends layout.pug
+block content
+    form(method='POST' action='/verify')
+        input(type="text" name='otp' placeholder="One Time Password")
+        input(type="submit" name="submit" value="Verify")
+

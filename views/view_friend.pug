@@ -1,0 +1,24 @@
+extends user_layout.pug
+block content
+    center
+        div.jumbotron.jumbotron-fluid(style ="width: 50%;margin-top: 40px; background-color: rgb(187, 18, 224) ") 
+            a(href=friend.profile)
+                img(src = friend.profile style = "height: 90px;width: 70px")
+            br
+            br
+            strong #{friend.name}
+            br
+            strong #{friend._id}
+            br
+            br
+            if status
+                if status === 'sent'
+                    button.btn.btn-info.btn-sm(style="background-color: rgb(114, 7, 133); border-color:black" disabled) Requested
+                else if status === 'requested'
+                    a(href = "/user/friends/acceptRequest?user="+id)
+                        button.btn.btn-info.btn-sm(style="background-color: rgb(114, 7, 133); border-color:black") Accept
+                else if status === 'friend'
+                    button.btn.btn-info.btn-sm(style="background-color: rgb(114, 7, 133); border-color:black" disabled) Friends
+            else
+                a(href = "/user/friends/sentRequest?user="+friend._id)
+                    button.btn.btn-info.btn-sm(style="background-color: rgb(114, 7, 133); border-color:black") Request

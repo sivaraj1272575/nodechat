@@ -1,0 +1,9 @@
+extends layout.pug
+block content
+    form(method="POST" action="/register2" enctype="multipart/form-data")
+        input(type="text" name="name" placeholder="Name.." required)
+        input(type="password" name="pass1" placeholder="Your Password.." required)
+        input(type="password" name="pass2" placeholder="Confirm Password.." required)
+        input(type="file" name="profile")
+        input(type="submit" name="submit" value="Register")
+    
